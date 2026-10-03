@@ -16,6 +16,7 @@
 | `day3` | 并发入门 | goroutine、channel（缓冲/无缓冲）、WaitGroup、select |
 | `select-timeout` | select 超时模式 | `select` + `time.After`：Go 里“不等了”的标准写法 |
 | `day4` | 实战：并发端口扫描器 | `net.DialTimeout` 真连端口 + worker 池 |
+| `day5` | 实战：端口扫描 + 指纹识别 | 开放端口自动抓 HTTP `Server` 头 + `defer` 机制 |
 
 ```bash
 cd day4 && go run .   # 100 个 worker 并发扫本机 1-1024 端口
