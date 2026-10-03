@@ -17,6 +17,7 @@
 | `select-timeout` | select 超时模式 | `select` + `time.After`：Go 里“不等了”的标准写法 |
 | `day4` | 实战：并发端口扫描器 | `net.DialTimeout` 真连端口 + worker 池 |
 | `day5` | 实战：端口扫描 + 指纹识别 | 开放端口自动抓 HTTP `Server` 头 + `defer` 机制 |
+| `day6` | 实战：子域名爆破 | 字典枚举 + `net.LookupHost`，fake-ip/wildcard 过滤，自定义 Resolver 直连公共 DNS |
 
 ```bash
 cd day4 && go run .   # 100 个 worker 并发扫本机 1-1024 端口
@@ -26,6 +27,7 @@ cd day4 && go run .   # 100 个 worker 并发扫本机 1-1024 端口
 
 Day 4 的端口扫描器是安全研发真实在用的小工具雏形：资产测绘、指纹识别、
 漏洞扫描里到处都是“worker 池 + 任务队列”这个模式。
+Day 6 顺带踩了真实的坑：Clash TUN 会劫持全部 53 端口流量（fake-ip），子域名枚举必须先做假 IP 过滤——定位过程记在 day6/main.go 文件头注释里。
 
 ## 学习方法
 
